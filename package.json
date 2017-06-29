@@ -1,0 +1,24 @@
+{
+  "name": "gmail_analyse",
+  "version": "1.0.0",
+  "description": "Script for making gmail analises using Google Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gstuczynski/gmail_analyse.git"
+  },
+  "author": "Grzegorz Stuczyński",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gstuczynski/gmail_analyse/issues"
+  },
+  "homepage": "https://github.com/gstuczynski/gmail_analyse#readme",
+  "dependencies": {
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^19.0.0",
+    "underscore": "^1.8.3"
+  }
+}
