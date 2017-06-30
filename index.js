@@ -2,8 +2,25 @@ var fs = require('fs');
 var listMails = require('./listMails');
 var authorize = require('./authorize');
 var getSender = require('./getSender');
-var sendDataToSheet = require('./sendDataToSheet')
 var _ = require('underscore');
+var createFile = require('./createFile');
+var format = "both",
+    separator = ",";
+
+process.argv.forEach((val, index) => {
+    switch (val) {
+        case "--out-format":
+            format = process.argv[index + 1];
+            break;
+        case "--csv-separator":
+            separator = process.argv[index + 1];
+            break;
+    }
+    if (["json", "csv", "both"].indexOf(format) < 0) {
+        throw `Wrong --out-format parametr
+        available options: json, csv, both`
+    }
+});
 
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
     if (err) {
@@ -20,11 +37,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
                 senders.forEach(i => {
                     sendersCount[i] = (sendersCount[i] || 0) + 1;
                 });
-                console.log(sendersCount)
-                Object.keys(sendersCount).map(addr => {
-                    console.log(addr)
-                    sendDataToSheet(auth, addr, sendersCount[addr], "1Uuw0vIt1TatNidUQqsMVXf7qp4P_gMLzVL5NHtejHjk");
-                })
+                createFile(sendersCount, format, separator)
             });
     })
 });

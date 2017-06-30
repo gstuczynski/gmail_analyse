@@ -1,2 +1,4 @@
 node_modules
 .vscode
+client_id.json
+client_secret.json
