@@ -18,7 +18,7 @@ function getSender(auth, userId, threadId) {
             }
             response.messages[0].payload.headers.map(header => {
                 if (header.name == "From") {
-                    resolve(header.value)
+                    resolve(header.value.replace(/"/,''))
                 }
             })
         });
