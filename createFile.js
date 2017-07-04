@@ -1,5 +1,4 @@
 var fs = require('fs');
-
 function createFile(sendersCount, outFormat, separator) {
 
     try {
@@ -10,7 +9,7 @@ function createFile(sendersCount, outFormat, separator) {
     }
 
     if (outFormat == "json" || outFormat == "both") {
-        fs.writeFile('output/senders.json', JSON.stringify(sendersCount), 'utf8', (err, data) => {
+        fs.writeFile('output/senders.json', JSON.stringify(sendersCount, null, 4), 'utf8', (err, data) => {
             if (err) {
                 console.log(err);
             } else {

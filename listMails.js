@@ -11,9 +11,14 @@ function listMails(auth, userId, query) {
                     reject('The API returned an error: ' + err);
                     return;
                 }
+                if(response.messages){
                 response.messages.map(msg => {
                     idsMsgs.push(msg.threadId)
                 });
+                }else{
+                    console.log("Wrong response: ", response)
+                    return;
+                }
                 if (response.nextPageToken) {
                     getPageOfMessages({
                         auth: auth,

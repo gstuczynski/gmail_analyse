@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/gstuczynski/gmail_analyse#readme",
   "dependencies": {
+    "argparse": "^1.0.9",
+    "args-parser": "^1.1.0",
     "google-auth-library": "^0.10.0",
     "googleapis": "^19.0.0",
+    "sort-object": "^3.0.2",
     "underscore": "^1.8.3"
   }
 }
